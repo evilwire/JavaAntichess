@@ -11,14 +11,30 @@ import java.util.ArrayList;
 import Antichess.Color;
 
 public class Pawn extends Piece implements IMoveable {
-   public void Move( Location location ) {
+   public void move( Location location ) {
       if( !this.isMoveValid( location ) )
         return;
    }
 
    public boolean isMoveValid( Location location ){
+      // get current location
+      Location currentLocation = this.getCurrentLocation();
+      int deltaX = location.getX() - currentLocation.getX();
+      int deltaY = location.getY() - currentLocation.getY();
+
+      if( Math.abs( deltaX) > 1 )
+         return false;
+
+      if( Math.abs( deltaX ) == 1 && deltaY == 1 ) {
+         // check to see if there are any pieces in the location
+
+      }
 
       return false;
+   }
+
+   public Location getCurrentLocation(){
+      return this.location;
    }
 
    public ArrayList<Location> getValidLocations() {

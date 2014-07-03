@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public interface IMoveable {
-   void Move( Location location );
+   void move( Location location );
    boolean isMoveValid( Location location );
    ArrayList<Location> getValidLocations();
 }
