@@ -37,8 +37,8 @@ public class Location {
     * @return
     */
    public boolean isValid() {
-     return this.x >= 1 && this.x <= 16 &&
-            this.y >= 1 && this.y <= 16;
+     return this.x >= 1 && this.x <= 8 &&
+            this.y >= 1 && this.y <= 8;
    }
 
    /**
@@ -46,7 +46,7 @@ public class Location {
     * @return
     */
    public int hashCode(){
-      return this.x * 32 + this.y;
+      return (this.x - 1) << 3 + (this.y - 1);
    }
 
    /**
@@ -55,7 +55,6 @@ public class Location {
     * @return
     */
    public boolean equals( Location location ){
-     return ( this.getX() == location.getX() ) &&
-             ( this.getY() == location.getY() );
+     return this.hashCode() == location.hashCode();
    }
 }

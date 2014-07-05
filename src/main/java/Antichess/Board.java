@@ -6,13 +6,14 @@ import Antichess.Piece.Piece;
 import Antichess.Piece.Location;
 
 /**
- * Created with IntelliJ IDEA.
- * User: evilwire
- * Date: 7/4/14
- * Time: 8:14 PM
- * To change this template use File | Settings | File Templates.
+ * Board - Represents an (anti)chess board.
+ *
+ * Depends on:
+ * - Location.hashCode()
+ * - Piece.getLocation()
+ *
+ * @author Knight W. Fu
  */
-
 public class Board {
    private HashMap<Integer, Piece> pieceConfig;
 
@@ -20,31 +21,34 @@ public class Board {
     * Initializes an empty board.
     */
    public Board() {
-      pieceConfig = new HashMap<Integer, Piece>(1 << 8);
+      pieceConfig = new HashMap<Integer, Piece>(1 << 6);
    }
 
    public Board( List<Piece> pieces ) {
-      pieceConfig = new HashMap<Integer, Piece>(1 << 8);
+      pieceConfig = new HashMap<Integer, Piece>(1 << 3);
       for(int i = 0; i < pieces.size(); ++i ) {
          Piece piece = pieces.get(i);
-         int index = ((piece.getLocation().getY() - 1) << 4) +
-                 piece.getLocation().getX() - 1;
-         pieceConfig.put( index, piece );
+         pieceConfig.put
+           ( piece.getLocation().hashCode(), piece );
       }
    }
 
-   public boolean isLocationEmpty( Location location ) {
-      int index = ((location.getY() - 1) << 4) +
-              location.getX() - 1;
-
-      return false;
+   public void updatePieceLocation( Location oldLocation, Piece piece ){
+      this.pieceConfig.remove( oldLocation.hashCode() );
+      this.pieceConfig.put( piece.getLocation().hashCode(), piece );
    }
 
+   public boolean isLocationEmpty( Location location ) {
+      return this.pieceConfig.containsKey(location.hashCode());
+   }
+
+   /**
+    * @throws IndexOutOfBoundsException
+    * @param location
+    * @return
+    */
    public Piece getPieceAt( Location location )
    {
-      int index = ((location.getY() - 1) << 4) +
-              location.getX() - 1;
-
-      return this.pieceConfig.get( index );
+      return this.pieceConfig.get( location.hashCode() );
    }
 }
