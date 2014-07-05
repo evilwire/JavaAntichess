@@ -21,7 +21,7 @@ public class Location {
     * @return
     */
    public int getX() {
-     return this.x;
+      return this.x;
    }
 
    /**
@@ -29,7 +29,7 @@ public class Location {
     * @return
     */
    public int getY() {
-     return this.y;
+      return this.y;
    }
 
    /**
@@ -37,24 +37,37 @@ public class Location {
     * @return
     */
    public boolean isValid() {
-     return this.x >= 1 && this.x <= 8 &&
-            this.y >= 1 && this.y <= 8;
+      return this.x >= 1 && this.x <= 8 &&
+              this.y >= 1 && this.y <= 8;
    }
 
    /**
     *
     * @return
     */
+   @Override
    public int hashCode(){
       return (this.x - 1) << 3 + (this.y - 1);
    }
 
    /**
+    * @return the string representation of the object
+    */
+   @Override
+   public String toString(){
+      return "(" + this.getX() + "," + this.getY() + ")";
+   }
+
+   /**
     *
-    * @param location
+    * @param other
     * @return
     */
-   public boolean equals( Location location ){
-     return this.hashCode() == location.hashCode();
+   @Override
+   public boolean equals( Object other ){
+      if( other.getClass().getName() != "Location" )
+         return false;
+
+      return this.hashCode() == ((Location) other).hashCode();
    }
 }
