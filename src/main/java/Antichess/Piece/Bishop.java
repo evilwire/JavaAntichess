@@ -9,6 +9,7 @@ package Antichess.Piece;
  */
 import java.util.ArrayList;
 import Antichess.Color;
+import Antichess.Board;
 
 public class Bishop extends Piece {
    public Bishop( Color color ) {
@@ -16,13 +17,13 @@ public class Bishop extends Piece {
    }
 
    public boolean isMoveValid
-        ( Location location, ArrayList<Piece> opponentPieces )
+        ( Location location, Board board )
    {
       return false;
    }
 
    public ArrayList<Location> getValidLocations
-        ( ArrayList<Piece> opponentPieces )
+        ( Board board )
    {
       ArrayList<Location> locations = new ArrayList<Location>();
 

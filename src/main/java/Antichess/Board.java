@@ -1,6 +1,6 @@
 package Antichess;
 
-import java.util.HashTable;
+import java.util.HashMap;
 import java.util.List;
 import Antichess.Piece.Piece;
 import Antichess.Piece.Location;
@@ -14,22 +14,22 @@ import Antichess.Piece.Location;
  */
 
 public class Board {
-   private HashTable<Piece> pieceConfig;
+   private HashMap<Integer, Piece> pieceConfig;
 
    /**
     * Initializes an empty board.
     */
    public Board() {
-      pieceConfig = new HashTable<int, Piece>(1 << 8);
+      pieceConfig = new HashMap<Integer, Piece>(1 << 8);
    }
 
    public Board( List<Piece> pieces ) {
-      pieceConfig = new HashTable<int, Piece>(1 << 8);
+      pieceConfig = new HashMap<Integer, Piece>(1 << 8);
       for(int i = 0; i < pieces.size(); ++i ) {
          Piece piece = pieces.get(i);
          int index = ((piece.getLocation().getY() - 1) << 4) +
                  piece.getLocation().getX() - 1;
-         pieceConfig.set( index, piece );
+         pieceConfig.put( index, piece );
       }
    }
 
@@ -37,7 +37,7 @@ public class Board {
       int index = ((location.getY() - 1) << 4) +
               location.getX() - 1;
 
-      pieceConfig.get
+      return false;
    }
 
    public Piece getPieceAt( Location location )

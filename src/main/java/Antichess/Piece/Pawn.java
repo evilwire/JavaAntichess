@@ -8,19 +8,33 @@ package Antichess.Piece;
  * To change this template use File | Settings | File Templates.
  */
 import java.util.ArrayList;
-import Antichess.Color;
+import Antichess.*;
 
-public class Pawn extends Piece implements IMoveable {
+public class Pawn extends Piece {
+   /**
+    *
+    * @param color
+    */
    public Pawn( Color color ) {
       this.color = color;
    }
 
+   /**
+    *
+    * @param location
+    */
    public void setLocation( Location location ) {
       this.location = location;
    }
 
+   /**
+    *
+    * @param location
+    * @param board
+    * @return
+    */
    public boolean isMoveValid( Location location,
-                               ArrayList<Piece> opponentPieces ){
+                               Board board ){
       Location currentLocation = this.getLocation();
       int deltaX = location.getX() - currentLocation.getX();
       int deltaY = location.getY() - currentLocation.getY();
@@ -43,7 +57,7 @@ public class Pawn extends Piece implements IMoveable {
       return false;
    }
 
-   public ArrayList<Location> getValidLocations( ArrayList<Piece> opponentPieces ) {
+   public ArrayList<Location> getValidLocations( Board board ) {
       ArrayList<Location> validLocations = new ArrayList<Location>();
 
       return validLocations;

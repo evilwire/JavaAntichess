@@ -1,6 +1,7 @@
 package Antichess.Piece;
 
 import java.util.ArrayList;
+import Antichess.Board;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,8 +11,33 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public interface IMoveable {
+   /**
+    *
+    * @param location
+    */
    void setLocation( Location location );
+
+   /**
+    *
+    * @return
+    */
    Location getLocation();
-   boolean isMoveValid( Location location, ArrayList<Piece> opponentPieces );
-   ArrayList<Location> getValidLocations( ArrayList<Piece> opponentPieces );
+
+   /**
+    *
+    * @param location
+    * @param board
+    * @return
+    */
+   boolean isMoveValid
+           ( Location  location,
+             Board     board );
+
+   /**
+    *
+    * @param board
+    * @return
+    */
+   ArrayList<Location> getValidLocations
+           ( Board board );
 }

@@ -1,6 +1,6 @@
 package Antichess.Piece;
 
-import Antichess.Color;
+import Antichess.*;
 import java.util.ArrayList;
 
 /**
@@ -17,13 +17,12 @@ public abstract class Piece implements IMoveable{
    protected boolean captured;
 
    abstract public boolean isMoveValid
-        ( Location location, ArrayList<Piece> opponentPieces );
+        ( Location location, Board board );
 
    abstract public ArrayList<Location> getValidLocations
-        ( ArrayList<Piece> opponentPieces );
+        ( Board board );
 
-   public Location getLocation()
-   {
+   public Location getLocation() {
       return this.location;
    }
 }
