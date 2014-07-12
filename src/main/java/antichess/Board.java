@@ -55,7 +55,7 @@ public class Board {
     * @return
     */
    public boolean isLocationEmpty( Location location ) {
-      return this.pieceConfig.containsKey( this.locToInt( location ) );
+      return !this.pieceConfig.containsKey( this.locToInt( location ) );
    }
 
    /**
