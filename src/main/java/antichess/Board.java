@@ -17,24 +17,20 @@ import antichess.piece.Location;
  * @author Knight W. Fu
  */
 public class Board {
-   private Map<Integer, Piece> pieceConfig;
-
-   private Integer locToInt( Location location ) {
-      return location.hashCode();
-   }
+   private Map<Location, Piece> pieceConfig;
 
    /**
     * Initializes an empty board.
     */
    public Board() {
-      pieceConfig = new HashMap<Integer, Piece>(1 << 6);
+      pieceConfig = new HashMap<Location, Piece>(1 << 6);
    }
 
    public Board( List<Piece> pieces ) {
-      pieceConfig = new HashMap<Integer, Piece>(1 << 3);
+      pieceConfig = new HashMap<Location, Piece>(1 << 3);
       for( Piece piece : pieces ) {
          this.pieceConfig.put
-           ( this.locToInt(piece.getLocation()), piece );
+           ( piece.getLocation(), piece );
       }
    }
 
@@ -44,9 +40,9 @@ public class Board {
     * @param piece
     */
    public void updatePieceLocation( Location oldLocation, Piece piece ){
-      this.pieceConfig.remove( oldLocation.hashCode() );
+      this.pieceConfig.remove( oldLocation );
       this.pieceConfig.put
-        ( this.locToInt(piece.getLocation()), piece );
+        ( piece.getLocation(), piece );
    }
 
    /**
@@ -55,7 +51,7 @@ public class Board {
     * @return
     */
    public boolean isLocationEmpty( Location location ) {
-      return !this.pieceConfig.containsKey( this.locToInt( location ) );
+      return !this.pieceConfig.containsKey( location );
    }
 
    /**
@@ -65,6 +61,6 @@ public class Board {
     */
    public Piece getPieceAt( Location location )
    {
-      return this.pieceConfig.get( location.hashCode() );
+      return this.pieceConfig.get( location );
    }
 }
