@@ -4,6 +4,7 @@ import antichess.Board;
 import antichess.Color;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,7 +22,7 @@ public abstract class Piece implements IMoveable{
    abstract public boolean isMoveValid
         ( Location location, Board board );
 
-   abstract public ArrayList<Location> getValidLocations
+   abstract public List<Location> getValidLocations
         ( Board board );
 
    public Location getLocation() {

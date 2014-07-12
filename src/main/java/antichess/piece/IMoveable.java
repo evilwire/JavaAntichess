@@ -1,6 +1,6 @@
 package antichess.piece;
 
-import java.util.ArrayList;
+import java.util.List;
 import antichess.Board;
 
 /**
@@ -38,6 +38,6 @@ public interface IMoveable {
     * @param board
     * @return
     */
-   ArrayList<Location> getValidLocations
+   List<Location> getValidLocations
            ( Board board );
 }

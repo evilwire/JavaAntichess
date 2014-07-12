@@ -8,6 +8,8 @@ package antichess.piece;
  * To change this template use File | Settings | File Templates.
  */
 import java.util.ArrayList;
+import java.util.List;
+
 import antichess.Color;
 import antichess.Board;
 
@@ -22,10 +24,10 @@ public class Bishop extends Piece {
       return false;
    }
 
-   public ArrayList<Location> getValidLocations
+   public List<Location> getValidLocations
         ( Board board )
    {
-      ArrayList<Location> locations = new ArrayList<Location>();
+      List<Location> locations = new ArrayList<Location>();
 
       return locations;
    }

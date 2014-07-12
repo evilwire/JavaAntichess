@@ -2,6 +2,8 @@ package antichess;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import antichess.piece.Piece;
 import antichess.piece.Location;
 
@@ -15,7 +17,7 @@ import antichess.piece.Location;
  * @author Knight W. Fu
  */
 public class Board {
-   private HashMap<Integer, Piece> pieceConfig;
+   private Map<Integer, Piece> pieceConfig;
 
    private Integer locToInt( Location location ) {
       return location.hashCode();

@@ -8,6 +8,8 @@ package antichess.piece;
  * To change this template use File | Settings | File Templates.
  */
 import java.util.ArrayList;
+import java.util.List;
+
 import antichess.*;
 
 public class Pawn extends Piece {
@@ -57,8 +59,8 @@ public class Pawn extends Piece {
       return false;
    }
 
-   public ArrayList<Location> getValidLocations( Board board ) {
-      ArrayList<Location> validLocations = new ArrayList<Location>();
+   public List<Location> getValidLocations( Board board ) {
+      List<Location> validLocations = new ArrayList<Location>();
 
       return validLocations;
    }
