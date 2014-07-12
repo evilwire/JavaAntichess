@@ -68,6 +68,7 @@ public class Location {
       if( other.getClass().getName() != "Location" )
          return false;
 
-      return this.hashCode() == ((Location) other).hashCode();
+      return this.getX() == ((Location) other).getX() &&
+             this.getY() == ((Location) other).getY();
    }
 }
