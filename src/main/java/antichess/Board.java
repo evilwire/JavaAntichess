@@ -32,8 +32,7 @@ public class Board {
 
    public Board( List<Piece> pieces ) {
       pieceConfig = new HashMap<Integer, Piece>(1 << 3);
-      for(int i = 0; i < pieces.size(); ++i ) {
-         Piece piece = pieces.get(i);
+      for( Piece piece : pieces ) {
          this.pieceConfig.put
            ( this.locToInt(piece.getLocation()), piece );
       }
