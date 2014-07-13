@@ -28,6 +28,14 @@ public class Bishop extends Piece {
         ( Board board )
    {
       List<Location> locations = new ArrayList<Location>();
+      // based on the location, find all diagonals
+      // and eliminate those which cannot be reached
+      boolean NE = false,
+              NW = false,
+              SE = false,
+              SW = false;
+
+
 
       return locations;
    }

@@ -41,22 +41,25 @@ public class Pawn extends Piece {
       int deltaX = location.getX() - currentLocation.getX();
       int deltaY = location.getY() - currentLocation.getY();
 
-      /*     A
-       *   B C D
-       *   E p F
-       */
-
-      if( deltaY < 0 || deltaY > 2 || Math.abs(deltaX) > 1 )
+      if( deltaY < 0 || deltaY > 2 || Math.abs(deltaX) > 1 ){
          return false;
+      }
 
       if( Math.abs(deltaX) == 1 )
       {
-         if( deltaY != 1) return false;
+         if( deltaY != 1){
+             return false;
+         }
 
-         // otherwise, test to see if
+         return !board.isLocationEmpty( location ) &&
+                (board.getPieceAt( location ).getColor() != this.getColor());
       }
 
-      return false;
+      if( deltaY == 2)
+         return currentLocation.getY() ==
+                 ((this.getColor() == Color.WHITE)? 2 : 7);
+
+      return board.isLocationEmpty(location);
    }
 
    public List<Location> getValidLocations( Board board ) {

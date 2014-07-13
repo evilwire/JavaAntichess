@@ -25,6 +25,10 @@ public abstract class Piece implements IMoveable{
    abstract public List<Location> getValidLocations
         ( Board board );
 
+   public Color getColor(){
+      return this.color;
+   }
+
    public Location getLocation() {
       return this.location;
    }
