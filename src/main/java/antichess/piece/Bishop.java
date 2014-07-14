@@ -89,7 +89,36 @@ public class Bishop extends Piece {
 
    public List<Location> getValidLocations( Board board )
    {
-      List<Location> locations = new ArrayList<Location>();
+      Location currentLocation = this.getLocation();
+      int distFromTop = board.getHeight() - currentLocation.getY(),
+          distFromBottom = currentLocation.getY(),
+          distFromLeft = currentLocation.getX(),
+          distFromRight = board.getWidth() - currentLocation.getX(),
+          boardWidth = board.getWidth(),
+          boardHeight = board.getHeight();
+
+      Location NWPoint = ( distFromTop > distFromLeft )?
+          new Location( 0, currentLocation.getY() + distFromLeft ) :
+          new Location( currentLocation.getX() - distFromTop, boardHeight );
+
+      Location NEPoint = ( distFromTop > distFromRight )?
+          new Location( boardWidth, currentLocation.getY() + distFromRight ) :
+          new Location( currentLocation.getX() + distFromTop, boardHeight );
+
+      Location SWPoint = ( distFromBottom > distFromLeft )?
+          new Location( 0, currentLocation.getY() - distFromLeft ) :
+          new Location( currentLocation.getX() - distFromBottom, 0 );
+
+      Location SEPoint = ( distFromBottom > distFromRight )?
+          new Location( boardWidth, currentLocation.getY() - distFromRight ) :
+          new Location( currentLocation.getX() + distFromBottom, 0 );
+
+      List<Location> locations = new ArrayList<Location>
+              ( this.getValidLocationsTo( NWPoint, board ) );
+
+      locations.addAll( this.getValidLocationsTo( NEPoint, board ));
+      locations.addAll( this.getValidLocationsTo( SWPoint, board ));
+      locations.addAll( this.getValidLocationsTo( SEPoint, board ));
 
       return locations;
    }
