@@ -56,8 +56,34 @@ public class Bishop extends Piece {
              Math.abs(location.getY() - currentLocation.getY());
    }
 
-   private List<Location> getValid( Board board ){
+   private List<Location> getValidLocationsTo( Location location, Board board ){
       List<Location> locations = new ArrayList<Location>();
+      Location currentLocation = this.getLocation();
+      if( location == currentLocation || !this.isLocationReachable( location ) ){
+         return locations;
+      }
+
+      int deltaX = location.getX() - currentLocation.getX(),
+          deltaY = location.getY() - currentLocation.getY(),
+          xStep = ( deltaX > 0 )? 1 : -1,
+          yStep = ( deltaY > 0 )? 1 : -1;
+
+      for( int i = 1; i < Math.abs( deltaX); ++i ){
+         Location intermediaryLocation =
+                 new Location(currentLocation.getX() + xStep * i,
+                              currentLocation.getY() + yStep * i);
+
+         if( board.isLocationEmpty( intermediaryLocation ) ) {
+            locations.add( intermediaryLocation );
+            continue;
+         }
+
+         if( board.getPieceAt( intermediaryLocation ).getColor() != this.getColor() ){
+            locations.add( intermediaryLocation );
+         }
+         return locations;
+      }
+
       return locations;
    }
 

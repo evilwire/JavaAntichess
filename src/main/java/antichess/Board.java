@@ -18,12 +18,27 @@ import antichess.piece.Location;
  */
 public class Board {
    private Map<Location, Piece> pieceConfig;
+   private int width, height;
 
    /**
     * Initializes an empty board.
     */
+   public Board( int width, int height ) {
+      this.pieceConfig = new HashMap<Location, Piece>(1 << 6);
+      this.width = width;
+      this.height = height;
+   }
+
    public Board() {
-      pieceConfig = new HashMap<Location, Piece>(1 << 6);
+      this( 8, 8);
+   }
+
+   public int getWidth(){
+      return this.width;
+   }
+
+   public int getHeight(){
+      return this.height;
    }
 
    public Board( List<Piece> pieces ) {

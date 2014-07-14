@@ -36,15 +36,6 @@ public class Location {
     *
     * @return
     */
-   public boolean isValid() {
-      return this.x >= 1 && this.x <= 8 &&
-              this.y >= 1 && this.y <= 8;
-   }
-
-   /**
-    *
-    * @return
-    */
    @Override
    public int hashCode(){
       return (this.x - 1) << 3 + (this.y - 1);
