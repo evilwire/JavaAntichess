@@ -41,6 +41,12 @@ public class Board {
       return this.height;
    }
 
+   public boolean isLocationValid( Location location ){
+      return location.getX() >= 0 && location.getY() >= 0 &&
+             location.getX() < this.getWidth() &&
+             location.getY() < this.getHeight();
+   }
+
    public Board( List<Piece> pieces ) {
       pieceConfig = new HashMap<Location, Piece>(1 << 3);
       for( Piece piece : pieces ) {
