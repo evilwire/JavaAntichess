@@ -122,8 +122,4 @@ public class Bishop extends Piece {
 
       return locations;
    }
-
-   public void setLocation( Location location ){
-      this.location = location;
-   }
 }

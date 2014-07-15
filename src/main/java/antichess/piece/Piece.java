@@ -19,17 +19,15 @@ public abstract class Piece implements IMoveable{
    protected Location location;
    protected boolean captured;
 
-   abstract public boolean isMoveValid
-        ( Location location, Board board );
-
-   abstract public List<Location> getValidLocations
-        ( Board board );
-
    public Color getColor(){
       return this.color;
    }
 
    public Location getLocation() {
       return this.location;
+   }
+
+   public void setLocation(Location location){
+      this.location = location;
    }
 }

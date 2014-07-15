@@ -53,14 +53,6 @@ public class Pawn extends Piece {
    /**
     *
     * @param location
-    */
-   public void setLocation( Location location ) {
-      this.location = location;
-   }
-
-   /**
-    *
-    * @param location
     * @param board
     * @return
     */
