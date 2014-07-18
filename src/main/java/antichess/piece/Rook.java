@@ -80,7 +80,16 @@ public class Rook extends Piece {
     }
 
     public List<Location> getValidLocations(Board board) {
-        List<Location> locations = new ArrayList<Location>();
+        Location currentLocation = this.getLocation(),
+                 north = new Location( currentLocation.getX(), board.getHeight() ),
+                 south = new Location( currentLocation.getX(), 0 ),
+                 west = new Location( 0, currentLocation.getY() ),
+                 east = new Location( board.getWidth(), currentLocation.getY() );
+
+        List<Location> locations = new ArrayList<Location>( this.getValidLocationsTo( north, board ));
+        locations.addAll( this.getValidLocationsTo( south, board ));
+        locations.addAll( this.getValidLocationsTo( west, board ));
+        locations.addAll( this.getValidLocationsTo( east, board ));
 
         return locations;
     }
