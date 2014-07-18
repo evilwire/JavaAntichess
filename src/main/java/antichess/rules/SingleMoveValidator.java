@@ -15,7 +15,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class SingleMoveValidator implements IMoveValidator {
-    private boolean isLocationMovable(Piece piece, Location location, Board board){
+    private boolean canPieceMoveTo(Piece piece, Location location, Board board){
         return board.isLocationValid( location ) &&
                ( board.isLocationEmpty( location ) ||
                  board.getPieceAt( location ).getColor() != piece.getColor() );
@@ -28,18 +28,18 @@ public class SingleMoveValidator implements IMoveValidator {
             currentY = currentLocation.getY();
 
         Location targetTopLocation = new Location( targetX, currentY + 1);
-        if( this.isLocationMovable( piece, targetTopLocation, board ) ){
+        if( this.canPieceMoveTo(piece, targetTopLocation, board) ){
             columnLocation.add( targetTopLocation );
         }
 
         Location targetBottomLocation = new Location( targetX, currentY - 1);
-        if( this.isLocationMovable( piece, targetBottomLocation, board ) ){
+        if( this.canPieceMoveTo(piece, targetBottomLocation, board) ){
             columnLocation.add( targetBottomLocation );
         }
 
         if( columnOffset != 0 ){
             Location targetMiddleLocation = new Location( targetX, currentY);
-            if( this.isLocationMovable( piece, targetMiddleLocation, board ) ){
+            if( this.canPieceMoveTo(piece, targetMiddleLocation, board) ){
                 columnLocation.add( targetMiddleLocation );
             }
         }
@@ -65,6 +65,6 @@ public class SingleMoveValidator implements IMoveValidator {
             return false;
         }
 
-        return this.isLocationMovable(piece, location, board);
+        return this.canPieceMoveTo(piece, location, board);
     }
 }
