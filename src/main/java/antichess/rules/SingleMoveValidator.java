@@ -16,39 +16,34 @@ import java.util.List;
  */
 public class SingleMoveValidator implements IMoveValidator {
     private boolean isLocationMovable(Piece piece, Location location, Board board){
-        return board.isLocationEmpty( location ) ||
-               board.getPieceAt( location ).getColor() != piece.getColor();
+        return board.isLocationValid( location ) &&
+               ( board.isLocationEmpty( location ) ||
+                 board.getPieceAt( location ).getColor() != piece.getColor() );
     }
 
     private List<Location> getColumn( int columnOffset, Piece piece, Board board ){
         List<Location> columnLocation = new ArrayList<Location>();
         Location currentLocation = piece.getLocation();
-        int currentX = currentLocation.getX(),
-            currentY = currentLocation.getY(),
-            boardWidth = board.getWidth(),
-            boardHeight = board.getHeight();
+        int targetX = currentLocation.getX() + columnOffset,
+            currentY = currentLocation.getY();
 
-        if( currentX + columnOffset < boardWidth ){
-            if( columnOffset != 0 ){
-                Location targetLocation = new Location( currentX + columnOffset, currentY );
-                if( this.isLocationMovable(piece, targetLocation, board) ) {
-                    columnLocation.add( targetLocation );
-                }
-            }
-            if( currentY + 1 < boardHeight ){
-                Location targetLocation = new Location( currentX + columnOffset, currentY + 1 );
-                if( this.isLocationMovable(piece, targetLocation, board) ) {
-                    columnLocation.add( new Location( currentX + 1, currentY ) );
-                }
-            }
+        Location targetTopLocation = new Location( targetX, currentY + 1);
+        if( this.isLocationMovable( piece, targetTopLocation, board ) ){
+            columnLocation.add( targetTopLocation );
+        }
 
-            if( currentY > 0 ){
-                Location targetLocation = new Location( currentX + columnOffset, currentY - 1 );
-                if( this.isLocationMovable(piece, targetLocation, board) ) {
-                    columnLocation.add( targetLocation );
-                }
+        Location targetBottomLocation = new Location( targetX, currentY - 1);
+        if( this.isLocationMovable( piece, targetBottomLocation, board ) ){
+            columnLocation.add( targetBottomLocation );
+        }
+
+        if( columnOffset != 0 ){
+            Location targetMiddleLocation = new Location( targetX, currentY);
+            if( this.isLocationMovable( piece, targetMiddleLocation, board ) ){
+                columnLocation.add( targetMiddleLocation );
             }
         }
+
         return columnLocation;
     }
 
