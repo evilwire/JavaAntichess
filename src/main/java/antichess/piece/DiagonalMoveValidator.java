@@ -87,7 +87,6 @@ public class DiagonalMoveValidator implements IMoveValidator {
         return validMoves;
     }
 
-
     public boolean isMoveValid( Piece piece, Location location, Board board ) {
         if( !this.isLocationReachable( piece, location )) {
             return false;
