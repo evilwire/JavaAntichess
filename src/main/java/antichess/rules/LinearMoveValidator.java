@@ -1,6 +1,9 @@
-package antichess.piece;
+package antichess.rules;
 
 import antichess.Board;
+import antichess.piece.Location;
+import antichess.piece.Piece;
+import antichess.rules.IMoveValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +45,7 @@ public class LinearMoveValidator implements IMoveValidator {
                 else {
                     if( board.getPieceAt(intermediaryLocation).getColor() !=
                             piece.getColor() ){
-                        validMoves.add( intermediaryLocation );
+                        validMoves.add(intermediaryLocation);
                     }
                     break;
                 }
@@ -60,7 +63,7 @@ public class LinearMoveValidator implements IMoveValidator {
                 else {
                     if( board.getPieceAt( intermediaryLocation ).getColor() !=
                             piece.getColor() ){
-                        validMoves.add( intermediaryLocation );
+                        validMoves.add(intermediaryLocation);
                     }
                     break;
                 }
@@ -87,13 +90,13 @@ public class LinearMoveValidator implements IMoveValidator {
 
         validMoves.addAll( this.getValidMovesTo( piece, south, board ));
         validMoves.addAll( this.getValidMovesTo( piece, west, board ));
-        validMoves.addAll( this.getValidMovesTo( piece, east, board ));
+        validMoves.addAll(this.getValidMovesTo(piece, east, board));
 
         return validMoves;
     }
 
     public boolean isMoveValid( Piece piece, Location location, Board board) {
-        List<Location> validMoves = this.getValidMovesTo( piece, location, board );
+        List<Location> validMoves = this.getValidMovesTo(piece, location, board);
 
         if( validMoves.isEmpty() ){
             return false;

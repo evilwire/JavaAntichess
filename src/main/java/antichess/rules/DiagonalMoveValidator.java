@@ -1,6 +1,9 @@
-package antichess.piece;
+package antichess.rules;
 
 import antichess.Board;
+import antichess.piece.Location;
+import antichess.piece.Piece;
+import antichess.rules.IMoveValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,12 +34,12 @@ public class DiagonalMoveValidator implements IMoveValidator {
                               currentLocation.getY() + yStep * i);
 
          if( board.isLocationEmpty( intermediaryLocation ) ) {
-            validMoves.add( intermediaryLocation );
+            validMoves.add(intermediaryLocation);
             continue;
          }
 
          if( board.getPieceAt( intermediaryLocation ).getColor() != piece.getColor() ){
-            validMoves.add( intermediaryLocation );
+            validMoves.add(intermediaryLocation);
          }
          return validMoves;
       }
@@ -82,7 +85,7 @@ public class DiagonalMoveValidator implements IMoveValidator {
 
         validMoves.addAll( this.getValidMovesTo( piece, NEPoint, board ));
         validMoves.addAll( this.getValidMovesTo( piece, SWPoint, board ));
-        validMoves.addAll( this.getValidMovesTo( piece, SEPoint, board ));
+        validMoves.addAll(this.getValidMovesTo(piece, SEPoint, board));
 
         return validMoves;
     }

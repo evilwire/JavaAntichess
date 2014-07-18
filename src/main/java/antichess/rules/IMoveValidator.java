@@ -1,4 +1,4 @@
-package antichess.piece;
+package antichess.rules;
 
 /**
  * Created by IntelliJ IDEA.
@@ -8,6 +8,9 @@ package antichess.piece;
  * To change this template use File | Settings | File Templates.
  */
 import antichess.Board;
+import antichess.piece.Location;
+import antichess.piece.Piece;
+
 import java.util.List;
 
 public interface IMoveValidator {

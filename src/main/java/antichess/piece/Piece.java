@@ -1,11 +1,9 @@
 package antichess.piece;
 
-import antichess.Board;
 import antichess.Color;
+import antichess.rules.IMoveValidator;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
