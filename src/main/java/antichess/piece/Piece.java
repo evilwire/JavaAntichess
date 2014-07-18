@@ -14,36 +14,36 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class Piece {
-   protected String name;
-   protected Color color;
-   protected Location location;
-   protected boolean captured = false;
+    protected PieceType type;
+    protected Color color;
+    protected Location location;
+    protected boolean captured = false;
 
-   public Color getColor(){
-      return this.color;
-   }
-
-   public Location getLocation() {
-      return this.location;
-   }
-
-   public void setLocation(Location location){
-      this.location = location;
-   }
-
-   public boolean getCaptured(){
-       return this.captured;
-   }
-
-   public void setCaptured(boolean captured){
-       this.captured = captured;
-   }
-
-    public String getName() {
-        return name;
+    public PieceType getType() {
+        return type;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setType(PieceType type) {
+        this.type = type;
+    }
+
+    public Color getColor(){
+        return this.color;
+    }
+
+    public Location getLocation() {
+        return this.location;
+    }
+
+    public void setLocation(Location location){
+        this.location = location;
+    }
+
+    public boolean getCaptured(){
+        return this.captured;
+    }
+
+    public void setCaptured(boolean captured){
+        this.captured = captured;
     }
 }

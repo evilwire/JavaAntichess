@@ -16,6 +16,6 @@ import antichess.Board;
 public class Bishop extends Piece {
    public Bishop( Color color ) {
       this.color = color;
-      this.name = "Bishop";
+      this.type = PieceType.BISHOP;
    }
 }
