@@ -8,7 +8,7 @@ package antichess.rules;
  * To change this template use File | Settings | File Templates.
  */
 import antichess.Board;
-import antichess.piece.Location;
+import antichess.Location;
 import antichess.piece.Piece;
 
 import java.util.List;

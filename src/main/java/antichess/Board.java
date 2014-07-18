@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import antichess.piece.Piece;
-import antichess.piece.Location;
 
 /**
  * Board - Represents an (anti)chess board.

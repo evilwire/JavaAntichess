@@ -1,6 +1,7 @@
 package antichess.piece;
 
 import antichess.Color;
+import antichess.Location;
 import antichess.rules.IMoveValidator;
 
 import java.util.Collection;

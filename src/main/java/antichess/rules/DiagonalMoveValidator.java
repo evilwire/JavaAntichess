@@ -1,9 +1,8 @@
 package antichess.rules;
 
 import antichess.Board;
-import antichess.piece.Location;
+import antichess.Location;
 import antichess.piece.Piece;
-import antichess.rules.IMoveValidator;
 
 import java.util.ArrayList;
 import java.util.List;

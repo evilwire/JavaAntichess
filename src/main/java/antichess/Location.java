@@ -1,4 +1,4 @@
-package antichess.piece;
+package antichess;
 
 /**
  * Created with IntelliJ IDEA.
