@@ -15,7 +15,9 @@ import java.util.List;
 public class Rook extends Piece {
 
     public boolean isMoveValid(Location location, Board board) {
-        return false;
+        List<Location> validMoves = this.getValidLocationsTo( location, board );
+
+        return validMoves.get( validMoves.size() - 1 ).equals( location );
     }
 
     private boolean isLocationReachable( Location location){
