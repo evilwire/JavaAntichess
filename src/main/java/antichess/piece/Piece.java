@@ -13,7 +13,7 @@ import java.util.Collection;
  * Time: 5:15 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class Piece {
+public class Piece {
     protected PieceType type;
     protected Color color;
     protected Location location;
