@@ -12,11 +12,11 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class LinearMoveValidator implements IMoveValidator {
-    public List<Location> getValidMove(Location location, Piece piece, Board board) {
+    public List<Location> getValidMoves( Piece piece, Location location, Board board) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public boolean isMoveValid(Location location, Piece piece, Board board) {
+    public boolean isMoveValid( Piece piece, Location location, Board board) {
         return false;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

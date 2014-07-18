@@ -11,6 +11,6 @@ import antichess.Board;
 import java.util.List;
 
 public interface IMoveValidator {
-    public List<Location> getValidMove(Location location, Piece piece, Board board);
-    public boolean isMoveValid(Location location, Piece piece, Board board);
+    public List<Location> getValidMoves(Piece piece, Location location, Board board);
+    public boolean isMoveValid(Piece piece, Location location, Board board);
 }
