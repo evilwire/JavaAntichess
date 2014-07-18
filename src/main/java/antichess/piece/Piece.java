@@ -4,6 +4,7 @@ import antichess.Board;
 import antichess.Color;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public abstract class Piece {
     protected Color color;
     protected Location location;
     protected boolean captured = false;
+    protected Collection<IMoveValidator> moveValidators;
 
     public PieceType getType() {
         return type;
@@ -45,5 +47,9 @@ public abstract class Piece {
 
     public void setCaptured(boolean captured){
         this.captured = captured;
+    }
+
+    public Collection<IMoveValidator> getMoveValidators() {
+        return moveValidators;
     }
 }
