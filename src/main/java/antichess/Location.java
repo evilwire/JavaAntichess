@@ -1,4 +1,4 @@
-package Antichess.Piece;
+package antichess;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,15 +36,6 @@ public class Location {
     *
     * @return
     */
-   public boolean isValid() {
-      return this.x >= 1 && this.x <= 8 &&
-              this.y >= 1 && this.y <= 8;
-   }
-
-   /**
-    *
-    * @return
-    */
    @Override
    public int hashCode(){
       return (this.x - 1) << 3 + (this.y - 1);
@@ -68,6 +59,7 @@ public class Location {
       if( other.getClass().getName() != "Location" )
          return false;
 
-      return this.hashCode() == ((Location) other).hashCode();
+      return this.getX() == ((Location) other).getX() &&
+             this.getY() == ((Location) other).getY();
    }
 }

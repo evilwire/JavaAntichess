@@ -1,9 +1,16 @@
 package Antichess;
 
+/**
+ * Created with IntelliJ IDEA.
+ * User: evilwire
+ * Date: 7/3/14
+ * Time: 6:13 PM
+ * To change this template use File | Settings | File Templates.
+ */
+import java.util.List;
+import antichess.piece.Piece;
 import java.util.ArrayList;
 import java.util.List;
-import Antichess.Piece.Piece;
-import Antichess.Piece.Pawn;
 
 /**
  * Player - class for maintaining the pieces in play
