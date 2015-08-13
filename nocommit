@@ -1,0 +1,26 @@
+aws: {
+    access_key: AKIAIKAYKANVEPE5Q3ZQ
+    secret_key: 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  
+    resource_name: Uberheimlichsüßprojekt
+    ip_address: 10.7.213.123
+}
+
+more_secrets: {
+    mashery_key: qckbrwnfoxjmps0vrth31zdg
+    t1_login: {
+        user: cfinley
+        password: Moj1t0e$!
+        api_key: jackandj1llw3ntupth3h1ll
+    }
+}
+
+useless_config: {
+    num_a: 1
+    num_b: 2
+    obj_a: {
+        a: 1
+        b: 2
+        c: 3
+        unfortunate_name: take1thenremove3butadd12
+    }
+}
